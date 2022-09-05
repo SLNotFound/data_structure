@@ -7,34 +7,19 @@ import (
 )
 
 func isPalindrome(x int) {
-	str := strconv.Itoa(x)
-	split := strings.Split(str, "")
-	temp := split[:len(split)/2]
-	strings.Join(temp, "")
-	fmt.Println(strings.Join(temp, ""))
-}
-
-func test(x int) {
+	// 将数字转换成字符串
 	s := strconv.Itoa(x)
+	// 将字符串转成字符数组
 	r := strings.Split(s, "")
-	//r := []rune(s)
+
+	// 翻转字符数组，从后往前排列
 	for i, j := 0, len(r)-1; i < j; i, j = i+1, j-1 {
 		r[i], r[j] = r[j], r[i]
 	}
-	//return string(r) == s
 
 	fmt.Println(strings.Join(r, "") == s)
-
-	//count := len(split)
-	//
-	//for i := len(split); i < len(split)/2+1; i-- {
-	//	if x/int(math.Pow10(i)) == x%int(math.Pow10(count-i+1)) {
-	//		fmt.Println("123")
-	//	}
-	//	x = x - int(math.Pow10(i))
-	//}
 }
 
 func main() {
-	test(12321)
+	isPalindrome(121)
 }
